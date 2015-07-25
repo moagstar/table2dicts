@@ -1,6 +1,6 @@
 table2dicts
 ===========
-Python module for converting a html table to a list of dictionaries
+Python module for converting a html table to a list of dictionaries.
 
 Installation
 ------------
