@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """Python module for converting a html table to a list of dictionaries."""
+from collections import OrderedDict
 from bs4 import BeautifulSoup
 
 
@@ -7,7 +8,7 @@ def table2dicts(html):
     """
     Converts a html table to a list of dictionaries, for example:
 
-    >>> sorted(table2dicts('''
+    >>> table2dicts('''
     ...    <table>
     ...         <thead>
     ...             <tr><th>a</th><th>b</th><th>c</th></tr>
@@ -17,32 +18,32 @@ def table2dicts(html):
     ...             <tr><td>4</td><td>5</td><td>6</td></tr>
     ...         </tbody>
     ...    </table>
-    ... '''))
-    [{'a': '1', 'c': '3', 'b': '2'}, {'a': '4', 'c': '6', 'b': '5'}]
+    ... ''')
+    [OrderedDict([('a', '1'), ('b', '2'), ('c', '3')]), OrderedDict([('a', '4'), ('b', '5'), ('c', '6')])]
 
     It is also possibly to convert a html table with no thead / tbody,
     in which case the first row is used as headers:
 
-    >>> sorted(table2dicts('''
+    >>> table2dicts('''
     ...    <table>
     ...        <tr><th>a</th><th>b</th><th>c</th></tr>
     ...        <tr><td>1</td><td>2</td><td>3</td></tr>
     ...        <tr><td>4</td><td>5</td><td>6</td></tr>
     ...    </table>
-    ... '''))
-    [{'a': '1', 'c': '3', 'b': '2'}, {'a': '4', 'c': '6', 'b': '5'}]
+    ... ''')
+    [OrderedDict([('a', '1'), ('b', '2'), ('c', '3')]), OrderedDict([('a', '4'), ('b', '5'), ('c', '6')])]
 
     Similarly, when no th is present, the first row of td is used as
     headers:
 
-    >>> sorted(table2dicts('''
+    >>> table2dicts('''
     ...    <table>
     ...        <tr><td>a</td><td>b</td><td>c</td></tr>
     ...        <tr><td>1</td><td>2</td><td>3</td></tr>
     ...        <tr><td>4</td><td>5</td><td>6</td></tr>
     ...    </table>
-    ... '''))
-    [{'a': '1', 'c': '3', 'b': '2'}, {'a': '4', 'c': '6', 'b': '5'}]
+    ... ''')
+    [OrderedDict([('a', '1'), ('b', '2'), ('c', '3')]), OrderedDict([('a', '4'), ('b', '5'), ('c', '6')])]
 
     :param html: The html table to convert to a list of dictionaries.
     :return: list of dictionaries with data from the html.
@@ -59,10 +60,10 @@ def table2dicts(html):
     soup = BeautifulSoup(html)
     headers, values = _get_headers_and_values(soup)
     result = [
-        {
-            str(headers[i]): str(y.decode_contents())
+        OrderedDict([
+            (str(headers[i]), str(y.decode_contents()))
             for i, y in enumerate(x.select('td'))
-        }
+        ])
         for x in values
     ]
     
