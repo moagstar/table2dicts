@@ -10,9 +10,8 @@ TODO
 Usage
 -----
 
-Give it some html table:
+Give it some html with a :code:`table`:
 
-.. code-block:: python
     >>> from table2dicts import table2dicts
     >>> table2dicts('''
     ...    <table>
@@ -27,9 +26,8 @@ Give it some html table:
     ... ''')
     [{u'a': u'1', u'c': u'3', u'b': u'2'}, {u'a': u'4', u'c': u'6', u'b': u'5'}]
 
-No thead or tbody? No problem:
+No :code:`thead` or :code:`tbody`? No problem:
 
-.. code-block:: python
     >>> table2dicts('''
     ...    <table>
     ...        <tr><th>a</th><th>b</th><th>c</th></tr>
@@ -39,9 +37,8 @@ No thead or tbody? No problem:
     ... ''')
     [{u'a': u'1', u'c': u'3', u'b': u'2'}, {u'a': u'4', u'c': u'6', u'b': u'5'}]
 
-When no th is present, the first row of td elements is used as a header:
+When no :code:`th` is present, the first row of :code:`td` elements is used as a header:
 
-.. code-block:: python
     >>> table2dicts('''
     ...    <table>
     ...        <tr><td>a</td><td>b</td><td>c</td></tr>
