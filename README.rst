@@ -1,4 +1,5 @@
 .. image:: https://travis-ci.org/moagstar/table2dicts.svg?branch=master
+    :target: https://travis-ci.org/moagstar/table2dicts
 
 table2dicts
 =========== 
@@ -14,7 +15,6 @@ Usage
 
 Give it some html with a :code:`table`:
 
-    >>> from table2dicts import table2dicts
     >>> table2dicts('''
     ...    <table>
     ...         <thead>
@@ -26,8 +26,8 @@ Give it some html with a :code:`table`:
     ...         </tbody>
     ...    </table>
     ... ''')
-    [{u'a': u'1', u'c': u'3', u'b': u'2'}, {u'a': u'4', u'c': u'6', u'b': u'5'}]
-
+    [OrderedDict([('a', '1'), ('b', '2'), ('c', '3')]), OrderedDict([('a', '4'), ('b', '5'), ('c', '6')])]
+    
 No :code:`thead` or :code:`tbody`, no problem:
 
     >>> table2dicts('''
@@ -37,7 +37,7 @@ No :code:`thead` or :code:`tbody`, no problem:
     ...        <tr><td>4</td><td>5</td><td>6</td></tr>
     ...    </table>
     ... ''')
-    [{u'a': u'1', u'c': u'3', u'b': u'2'}, {u'a': u'4', u'c': u'6', u'b': u'5'}]
+    [OrderedDict([('a', '1'), ('b', '2'), ('c', '3')]), OrderedDict([('a', '4'), ('b', '5'), ('c', '6')])]
 
 When no :code:`th` is present, the first row of :code:`td` elements is used as a header:
 
@@ -48,4 +48,4 @@ When no :code:`th` is present, the first row of :code:`td` elements is used as a
     ...        <tr><td>4</td><td>5</td><td>6</td></tr>
     ...    </table>
     ... ''')
-    [{u'a': u'1', u'c': u'3', u'b': u'2'}, {u'a': u'4', u'c': u'6', u'b': u'5'}]
+    [OrderedDict([('a', '1'), ('b', '2'), ('c', '3')]), OrderedDict([('a', '4'), ('b', '5'), ('c', '6')])]
