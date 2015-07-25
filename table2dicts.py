@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 """Python module for converting a html table to a list of dictionaries."""
-from ordereddict import OrderedDict
+try:
+    from collections import OrderedDict
+except:
+    from ordereddict import OrderedDict
 from bs4 import BeautifulSoup
 
 
