@@ -10,7 +10,7 @@ TODO
 Usage
 -----
 
-Give it some html table...
+Give it some html table:
 
 .. code-block:: python
     >>> from table2dicts import table2dicts
@@ -27,7 +27,7 @@ Give it some html table...
     ... ''')
     [{u'a': u'1', u'c': u'3', u'b': u'2'}, {u'a': u'4', u'c': u'6', u'b': u'5'}]
 
-No thead or tbody, no problem...
+No thead or tbody? No problem:
 
 .. code-block:: python
     >>> table2dicts('''
