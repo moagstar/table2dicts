@@ -10,8 +10,9 @@ TODO
 Usage
 -----
 
-.. code-block:: python
+Give it some html table...
 
+.. code-block:: python
     >>> from table2dicts import table2dicts
     >>> table2dicts('''
     ...    <table>
@@ -26,9 +27,9 @@ Usage
     ... ''')
     [{u'a': u'1', u'c': u'3', u'b': u'2'}, {u'a': u'4', u'c': u'6', u'b': u'5'}]
 
-    It is also possibly to convert a html table with no thead / tbody,
-    in which case the first row is used as headers:
+No thead or tbody, no problem...
 
+.. code-block:: python
     >>> table2dicts('''
     ...    <table>
     ...        <tr><th>a</th><th>b</th><th>c</th></tr>
@@ -38,9 +39,9 @@ Usage
     ... ''')
     [{u'a': u'1', u'c': u'3', u'b': u'2'}, {u'a': u'4', u'c': u'6', u'b': u'5'}]
 
-    Similarly, when no th is present, the first row of td is used as
-    headers:
+When no th is present, the first row of td elements is used as a header:
 
+.. code-block:: python
     >>> table2dicts('''
     ...    <table>
     ...        <tr><td>a</td><td>b</td><td>c</td></tr>
