@@ -1,5 +1,5 @@
-.. |ImageLink| https://travis-ci.org/moagstar/table2dicts.svg?branch=master
-.. _ImageLink: https://travis-ci.org/moagstar/table2dicts
+.. image:: https://travis-ci.org/moagstar/table2dicts.svg?branch=master
+    :target: https://travis-ci.org/moagstar/table2dicts
 
 table2dicts
 =========== 
