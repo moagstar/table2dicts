@@ -7,7 +7,7 @@ def table2dicts(html):
     """
     Converts a html table to a list of dictionaries, for example:
 
-    >>> table2dicts('''
+    >>> sorted(table2dicts('''
     ...    <table>
     ...         <thead>
     ...             <tr><th>a</th><th>b</th><th>c</th></tr>
@@ -17,31 +17,31 @@ def table2dicts(html):
     ...             <tr><td>4</td><td>5</td><td>6</td></tr>
     ...         </tbody>
     ...    </table>
-    ... ''')
+    ... '''))
     [{'a': '1', 'c': '3', 'b': '2'}, {'a': '4', 'c': '6', 'b': '5'}]
 
     It is also possibly to convert a html table with no thead / tbody,
     in which case the first row is used as headers:
 
-    >>> table2dicts('''
+    >>> sorted(table2dicts('''
     ...    <table>
     ...        <tr><th>a</th><th>b</th><th>c</th></tr>
     ...        <tr><td>1</td><td>2</td><td>3</td></tr>
     ...        <tr><td>4</td><td>5</td><td>6</td></tr>
     ...    </table>
-    ... ''')
+    ... '''))
     [{'a': '1', 'c': '3', 'b': '2'}, {'a': '4', 'c': '6', 'b': '5'}]
 
     Similarly, when no th is present, the first row of td is used as
     headers:
 
-    >>> table2dicts('''
+    >>> sorted(table2dicts('''
     ...    <table>
     ...        <tr><td>a</td><td>b</td><td>c</td></tr>
     ...        <tr><td>1</td><td>2</td><td>3</td></tr>
     ...        <tr><td>4</td><td>5</td><td>6</td></tr>
     ...    </table>
-    ... ''')
+    ... '''))
     [{'a': '1', 'c': '3', 'b': '2'}, {'a': '4', 'c': '6', 'b': '5'}]
 
     :param html: The html table to convert to a list of dictionaries.
