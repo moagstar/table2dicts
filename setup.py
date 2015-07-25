@@ -7,7 +7,7 @@ setup(
   author = 'Daniel Bradburn',
   author_email = 'moagstar@gmail.com',
   url = 'https://github.com/moagstar/table2dicts',
-  download_url = 'https://github.com/moagstar/table2dicts/tarball/0.1',
+  download_url = 'https://github.com/moagstar/table2dicts/tarball/0.1a',
   keywords = ['html', 'scrape',],
   classifiers = [],
 )
