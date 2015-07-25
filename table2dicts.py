@@ -60,7 +60,7 @@ def table2dicts(html):
     headers, values = _get_headers_and_values(soup)
     result = [
         {
-            headers[i]: y.decode_contents()
+            unicode(headers[i]): unicode(y.decode_contents())
             for i, y in enumerate(x.select('td'))
         }
         for x in values
