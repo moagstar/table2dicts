@@ -26,7 +26,7 @@ Give it some html with a :code:`table`:
     ... ''')
     [{u'a': u'1', u'c': u'3', u'b': u'2'}, {u'a': u'4', u'c': u'6', u'b': u'5'}]
 
-No :code:`thead` or :code:`tbody`? No problem:
+No :code:`thead` or :code:`tbody`, no problem:
 
     >>> table2dicts('''
     ...    <table>
