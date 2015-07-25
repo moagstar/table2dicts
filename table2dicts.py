@@ -1,14 +1,6 @@
+#!/usr/bin/env python
+"""Python module for converting a html table to a list of dictionaries."""
 from bs4 import BeautifulSoup
-from doctest import testmod
-
-
-def _get_headers_and_values(soup):
-    headers = [x.string or '' for x in soup.select('table tr th')]
-    if len(headers) == 0:
-        # maybe no th specified? just use the first row of td's
-        headers = [x.string or '' for x in soup.select('table tr')[0].select('td')]
-    values = [x or '' for x in soup.select('table tr')][1:]
-    return headers, values
 
 
 def table2dicts(html):
@@ -55,6 +47,15 @@ def table2dicts(html):
     :param html: The html table to convert to a list of dictionaries.
     :return: list of dictionaries with data from the html.
     """
+    
+    def _get_headers_and_values(soup):
+        headers = [x.string or '' for x in soup.select('table tr th')]
+        if len(headers) == 0:
+            # maybe no th specified? just use the first row of td's
+            headers = [x.string or '' for x in soup.select('table tr')[0].select('td')]
+        values = [x or '' for x in soup.select('table tr')][1:]
+        return headers, values
+        
     soup = BeautifulSoup(html)
     headers, values = _get_headers_and_values(soup)
     result = [
@@ -64,8 +65,10 @@ def table2dicts(html):
         }
         for x in values
     ]
+    
     return result
 
 
 if __name__ == '__main__':
+    from doctest import testmod
     testmod()
