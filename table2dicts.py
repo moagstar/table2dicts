@@ -18,7 +18,7 @@ def table2dicts(html):
     ...         </tbody>
     ...    </table>
     ... ''')
-    [{u'a': u'1', u'c': u'3', u'b': u'2'}, {u'a': u'4', u'c': u'6', u'b': u'5'}]
+    [{'a': '1', 'c': '3', 'b': '2'}, {'a': '4', 'c': '6', 'b': '5'}]
 
     It is also possibly to convert a html table with no thead / tbody,
     in which case the first row is used as headers:
@@ -30,7 +30,7 @@ def table2dicts(html):
     ...        <tr><td>4</td><td>5</td><td>6</td></tr>
     ...    </table>
     ... ''')
-    [{u'a': u'1', u'c': u'3', u'b': u'2'}, {u'a': u'4', u'c': u'6', u'b': u'5'}]
+    [{'a': '1', 'c': '3', 'b': '2'}, {'a': '4', 'c': '6', 'b': '5'}]
 
     Similarly, when no th is present, the first row of td is used as
     headers:
@@ -42,7 +42,7 @@ def table2dicts(html):
     ...        <tr><td>4</td><td>5</td><td>6</td></tr>
     ...    </table>
     ... ''')
-    [{u'a': u'1', u'c': u'3', u'b': u'2'}, {u'a': u'4', u'c': u'6', u'b': u'5'}]
+    [{'a': '1', 'c': '3', 'b': '2'}, {'a': '4', 'c': '6', 'b': '5'}]
 
     :param html: The html table to convert to a list of dictionaries.
     :return: list of dictionaries with data from the html.
@@ -60,7 +60,7 @@ def table2dicts(html):
     headers, values = _get_headers_and_values(soup)
     result = [
         {
-            unicode(headers[i]): unicode(y.decode_contents())
+            str(headers[i]): str(y.decode_contents())
             for i, y in enumerate(x.select('td'))
         }
         for x in values
