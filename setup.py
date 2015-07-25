@@ -8,11 +8,11 @@ def read(*paths):
 
 setup(
     name='table2dicts',
-    version='0.1b',
-    description='Parse and split PEM files painlessly.',
+    version='0.1',
+    description='Python module for converting a html table to a list of dictionaries.',
     long_description=(read('README.rst')),
     url='http://github.com/moagstar/table2dicts/',
-    download_url = 'https://github.com/moagstar/table2dicts/tarball/0.1b',
+    download_url = 'https://github.com/moagstar/table2dicts/tarball/0.1',
     license='MIT',
     author='Daniel Bradburn',
     author_email='moagstar@gmail.com',
