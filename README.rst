@@ -7,9 +7,18 @@ Python module for converting a html table to a list of dictionaries.
 
 Installation
 ------------
+Installing from PyPI using ``pip``:
+    
+.. code-block:: bash
 
-TODO
+    $ pip install table2dicts
 
+Installing from source:
+    
+.. code-block:: bash
+
+    $ python setup.py install
+    
 Usage
 -----
 
