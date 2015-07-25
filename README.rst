@@ -1,3 +1,5 @@
+.. image:: https://travis-ci.org/moagstar/table2dicts.svg?branch=master
+
 table2dicts
 =========== 
 Python module for converting a html table to a list of dictionaries.
